@@ -209,6 +209,36 @@ html,body{margin:0;min-height:100%;font-family:Inter,system-ui,sans-serif;backgr
 .pj-hold{width:100%;display:flex;align-items:center;gap:10px;flex-wrap:wrap;text-align:left;padding:11px 12px;border-radius:13px;border:1px solid var(--line);background:var(--panel);margin-bottom:8px;transition:border-color .15s,transform .15s}.pj-hold:hover{border-color:#93c5fd;transform:translateY(-1px)}
 .pj-hold-t{display:block;font-size:.84rem;line-height:1.3;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.pj-hold-s{font-size:.72rem;color:var(--muted);margin-top:2px}
 .pj-hold-d{text-align:right;line-height:1.2}.pj-hold-d b{display:block;font-size:.95rem}.pj-hold-d small{font-size:.66rem;color:var(--muted)}
+
+/* ===== Progress Buku ===== */
+.pg-kicker{font-size:.62rem;font-weight:800;letter-spacing:.14em;color:#2563eb;text-transform:uppercase}.dark .pg-kicker{color:#93c5fd}
+.pg-head{padding:18px 20px}.pg-head-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.pg-title{font-size:1.5rem;font-weight:900;line-height:1.25;margin-top:4px;overflow-wrap:anywhere}
+.pg-eta{text-align:right}.pg-eta small{display:block;font-size:.72rem;color:var(--muted)}.pg-eta b{font-size:1.2rem;font-weight:900;color:#2563eb}.dark .pg-eta b{color:#93c5fd}
+.pg-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.pg-meta small{display:block;font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.pg-meta b{display:block;font-size:.85rem;margin-top:3px;overflow-wrap:anywhere}
+@media(max-width:700px){.pg-meta{grid-template-columns:repeat(2,minmax(0,1fr))}.pg-title{font-size:1.2rem}.pg-eta{text-align:left}}
+.pg-chev-wrap{padding:16px;overflow-x:auto}
+.pg-chev{display:flex;min-width:680px}
+.pg-step{--bg:#d9dee7;--fg:#475569;flex:1;min-width:0;position:relative;padding:13px 30px 13px 38px;min-height:84px;background:var(--bg);color:var(--fg);clip-path:polygon(0 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,0 100%,22px 50%);margin-left:-14px;display:flex;flex-direction:column;justify-content:center;gap:2px;transition:background-color .3s}
+.pg-step:first-child{margin-left:0;padding-left:20px;clip-path:polygon(0 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,0 100%);border-radius:10px 0 0 10px}
+.pg-step:last-child{clip-path:polygon(0 0,100% 0,100% 100%,0 100%,22px 50%);padding-right:20px;border-radius:0 10px 10px 0}
+.pg-step b{font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.02em}.pg-step span{font-size:.7rem;opacity:.9}.pg-step em{font-style:normal;font-size:.66rem;font-weight:800;opacity:.9}
+.pg-step.done{--bg:#4361ee;--fg:#fff}.pg-step.cur{--bg:#0ea5e9;--fg:#fff}.pg-step.na{--bg:#fde9b8;--fg:#92400e}
+.dark .pg-step.wait{--bg:#223047;--fg:#9fb0c8}.dark .pg-step.na{--bg:#4a3a14;--fg:#fcd34d}
+.pg-grid{display:grid;grid-template-columns:270px minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:900px){.pg-grid{grid-template-columns:1fr}}
+.pg-side{padding:18px 20px}.pg-cur{font-size:1.5rem;font-weight:900;color:#2563eb;line-height:1.2;margin:4px 0 8px;overflow-wrap:anywhere}.dark .pg-cur{color:#93c5fd}
+.pg-lbl{font-size:.7rem;color:var(--muted);margin-top:12px}.pg-side b{display:block;font-size:.95rem;margin-top:1px}.pg-hint{font-size:.7rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.pg-tlc{padding:18px 20px}
+.pg-tl{position:relative;padding-left:24px}.pg-tl:before{content:"";position:absolute;left:5px;top:8px;bottom:10px;width:2px;background:var(--line)}
+.pg-ti{position:relative;padding:0 0 20px}.pg-ti:last-child{padding-bottom:0}
+.pg-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:99px;background:#94a3b8;box-shadow:0 0 0 3px var(--panel)}
+.pg-ti[data-v="DONE"] .pg-dot{background:#2563eb}.pg-ti[data-v="ON PROGRESS"] .pg-dot{background:#0ea5e9;box-shadow:0 0 0 3px var(--panel),0 0 0 6px rgba(14,165,233,.28)}.pg-ti[data-v="N/A"] .pg-dot{background:#f59e0b}.pg-ti[data-v="N/A"]{opacity:.78}
+.pg-th{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pg-th b{font-size:.95rem}.pg-th .chip{padding:2px 9px;font-size:.64rem}
+.pg-ts{font-size:.76rem;color:var(--muted);margin-top:2px}.pg-ts b{color:var(--text)}
+.pg-tn{font-size:.75rem;color:var(--muted);margin-top:4px}
+.pg-adj{margin-top:8px;padding:9px 12px;border-radius:10px;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.28);color:#92400e;font-size:.78rem;line-height:1.45}.dark .pg-adj{color:#fcd34d}
 </style></head><body><div id="app"></div><div id="modal"></div><div id="toast" class="fixed right-3 top-3 z-[100] w-[min(410px,calc(100vw-24px))] space-y-2" aria-live="polite"></div><div id="print-area" class="hidden"></div><input id="cover-input" type="file" accept="image/jpeg,image/png,image/webp" class="hidden">
 <script>const SUPABASE_URL='https://qdmqmdazohsiplmmnwdq.supabase.co';
 const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFkbXFtZGF6b2hzaXBsbW1ud2RxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA3NTEzNDIsImV4cCI6MjEwNjMyNzM0Mn0.sHZ5CWavNYslKp36Bikp50AOoAgRLZruQCzqD4LwO_Q';
@@ -484,26 +514,102 @@ function pjPaintDetail(p){const d=$(`#pj-detail [data-did="${p.id}"]`);if(!d)ret
 function pjCounts(){const c={'':0,berjalan:0,late:0,selesai:0,belum:0};(st.projects||[]).forEach(p=>{const s=pjStat(p);c['']++;c[s.state]++;if(s.late)c.late++});document.querySelectorAll('[data-fc]').forEach(e=>e.textContent=c[e.dataset.fc]??0)}
 function pjApply(p){const o=pjOverview(st.projects||[]);st.pjO=o;pjPaint(o);pjAnaPaint(o);pjCounts();pjPaintItem(p);if(String(st.pjSel)===String(p.id))pjPaintDetail(p)}
 function pjRenderList(){const l=$('#pj-list');if(l)l.innerHTML=pjListHTML();document.querySelectorAll('.pj-ch').forEach(b=>b.classList.toggle('on',(b.dataset.v||'')===(st.pjf.stt||'')));pjCounts()}
-function pjRefreshAll(){const o=pjOverview(st.projects||[]);st.pjO=o;if(!pjFind(st.pjSel)){st.pjSel=null;if(innerWidth>=1024){const f=pjFiltered()[0];if(f)st.pjSel=f.p.id}}pjRenderList();const dp=$('#pj-detail');if(dp){dp.innerHTML=pjDetailHTML(pjFind(st.pjSel));dp.classList.toggle('open',!!st.pjOpen&&!!st.pjSel)}pjPaint(o);pjAnaPaint(o);const p=pjFind(st.pjSel);if(p)pjPaintDetail(p)}
+function pjRefreshAll(){const o=pjOverview(st.projects||[]);st.pjO=o;try{pgRender()}catch{}if(!pjFind(st.pjSel)){st.pjSel=null;if(innerWidth>=1024){const f=pjFiltered()[0];if(f)st.pjSel=f.p.id}}pjRenderList();const dp=$('#pj-detail');if(dp){dp.innerHTML=pjDetailHTML(pjFind(st.pjSel));dp.classList.toggle('open',!!st.pjOpen&&!!st.pjSel)}pjPaint(o);pjAnaPaint(o);const p=pjFind(st.pjSel);if(p)pjPaintDetail(p)}
 function pjSelect(id,mobileOpen=true){st.pjSel=id;st.pjOpen=mobileOpen&&innerWidth<1024;document.querySelectorAll('.pj-item.on').forEach(e=>e.classList.remove('on'));document.querySelector(`.pj-item[data-id="${id}"]`)?.classList.add('on');const dp=$('#pj-detail'),p=pjFind(id);if(!dp)return;dp.innerHTML=pjDetailHTML(p);dp.classList.toggle('open',st.pjOpen);if(p)requestAnimationFrame(()=>requestAnimationFrame(()=>pjPaintDetail(p)));if(st.pjOpen)dp.scrollTop=0}
-function pjTab(t){st.pjTab=t;$('#pj-tab-proj')?.classList.toggle('hidden',t!=='proj');$('#pj-tab-ana')?.classList.toggle('hidden',t!=='ana');document.querySelectorAll('.pj-tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t))}
+function pjTab(t){st.pjMain=t;$('#pj-m-progress')?.classList.toggle('hidden',t!=='progress');$('#pj-m-add')?.classList.toggle('hidden',t!=='add');document.querySelectorAll('[data-a="pj-tab"]').forEach(b=>b.classList.toggle('on',b.dataset.t===t));if(t==='progress')pgRender()}
+function pjPTab(t){st.pgTab=t;$('#pg-book')?.classList.toggle('hidden',t!=='book');$('#pg-ana')?.classList.toggle('hidden',t!=='ana');document.querySelectorAll('[data-a="pj-ptab"]').forEach(b=>b.classList.toggle('on',b.dataset.t===t))}
 
 async function projectsView(){
  const was=st.silent;st.silent=true;let T=null;try{T=await rpc('get_project_targets')}catch{}finally{st.silent=was}
  st.pjNoSql=T==null;st.pjT={...PJ_TARGET_DEF,...(T||{})};
  st.projects=await rpc('list_book_projects')||[];
- if(!st.pjf)st.pjf={q:'',ent:'',stt:''};if(!st.pjTab)st.pjTab='proj';
- if(st.pjFromBook){const m=st.projects.find(x=>x.title===st.pjf.q);if(m){st.pjSel=m.id;st.pjOpen=innerWidth<1024}st.pjFromBook=false}
+ if(!st.pjf)st.pjf={q:'',ent:'',stt:''};if(!st.pjMain)st.pjMain='progress';if(!st.pgTab)st.pgTab='book';st.pgNoEst=st.projects.length>0&&!('stage_estimates' in st.projects[0]);
+ if(st.pjFromBook){const m=st.projects.find(x=>x.title===st.pjFromBook);if(m){st.pjSel=m.id;st.pgSel=m.id}st.pjOpen=false;st.pjFromBook=false}
  if(!pjFind(st.pjSel)){st.pjSel=null;st.pjOpen=false}
  if(!st.pjSel&&innerWidth>=1024){const f=pjFiltered()[0];if(f)st.pjSel=f.p.id}
  const f=st.pjf,ents=[...new Set(st.projects.map(p=>(p.entity||'').trim()).filter(Boolean))].sort();
- return `<div class="pj2 space-y-5"><div class="flex flex-wrap items-end gap-3"><div class="flex-1 min-w-[220px]"><div class="text-xs font-black text-blue-600 tracking-[.2em]">PRODUKSI BUKU</div><h2 class="text-2xl font-black">Project Buku</h2><p class="text-sm text-slate-500">Ubah status tahap, dashboard langsung ikut berubah. Hanya Administrator dan Staff.</p></div><button type="button" class="btn soft" data-a="pj-export"><i class="ph ph-download-simple"></i> <span class="desktop">Export Excel</span></button>${isAdmin()?'<button type="button" class="btn soft" data-a="pj-targets"><i class="ph ph-target"></i> <span class="desktop">Target Hari</span></button>':''}<button type="button" class="btn primary" data-a="pj-add"><i class="ph ph-plus"></i> Tambah Project</button></div>
+ return `<div class="pj2 space-y-5"><div class="flex flex-wrap items-end gap-3"><div class="flex-1 min-w-[220px]"><div class="text-xs font-black text-blue-600 tracking-[.2em]">PRODUKSI BUKU</div><h2 class="text-2xl font-black">Project Buku</h2><p class="text-sm text-slate-500">Ubah status tahap, dashboard langsung ikut berubah. Hanya Administrator dan Staff.</p></div><button type="button" class="btn soft" data-a="pj-export"><i class="ph ph-download-simple"></i> <span class="desktop">Export Excel</span></button>${isAdmin()?'<button type="button" class="btn soft" data-a="pj-targets"><i class="ph ph-target"></i> <span class="desktop">Target Hari</span></button>':''}<button type="button" class="btn primary" data-a="pj-add"><i class="ph ph-plus"></i> Project Baru</button></div>
 ${st.pjNoSql?'<div class="banner"><i class="ph ph-info text-lg"></i><div>Hitungan hari belum aktif. Jalankan <b>17_project_timeline.sql</b> di Supabase SQL Editor, lalu klik Reload Data.</div></div>':''}
-${pjHeroHTML()}
-<div class="pj-tabs" role="tablist"><button type="button" class="${st.pjTab==='proj'?'on':''}" data-a="pj-tab" data-t="proj"><i class="ph ph-kanban"></i> Project</button><button type="button" class="${st.pjTab==='ana'?'on':''}" data-a="pj-tab" data-t="ana"><i class="ph ph-timer"></i> Analisis Waktu</button></div>
-<div id="pj-tab-proj"><div class="pj-split"><div class="pj-listcol"><div class="card p-3 space-y-3"><div class="grid grid-cols-[1fr_auto] gap-2"><div class="pj-search"><i class="ph ph-magnifying-glass"></i><input id="pj-q" class="input" placeholder="Cari judul atau catatan…" value="${esc(f.q)}" autocomplete="off"></div><select id="pj-ent" class="input !w-auto max-w-[140px]" aria-label="Entitas"><option value="">Semua</option>${ents.map(e=>`<option ${f.ent===e?'selected':''}>${esc(e)}</option>`).join('')}</select></div><div class="pj-chips">${PJ_FILTERS.map(x=>`<button type="button" class="pj-ch${(f.stt||'')===x[0]?' on':''}" data-a="pj-f" data-v="${x[0]}">${x[1]}<em data-fc="${x[0]}">0</em></button>`).join('')}</div></div><div id="pj-list" class="pj-list">${pjListHTML()}</div></div><div id="pj-detail" class="pj-detail${st.pjOpen?' open':''}">${pjDetailHTML(pjFind(st.pjSel))}</div></div></div>
-<div id="pj-tab-ana" class="hidden"><div id="pj-ana">${pjAnaHTML()}</div></div></div>`}
-function projInit(){const o=pjOverview(st.projects||[]);st.pjO=o;pjTab(st.pjTab||'proj');pjCounts();requestAnimationFrame(()=>requestAnimationFrame(()=>{pjPaint(o);pjAnaPaint(o);const p=pjFind(st.pjSel);if(p)pjPaintDetail(p)}))}
+${st.pgNoEst?'<div class="banner"><i class="ph ph-info text-lg"></i><div>Estimasi manual belum aktif. Jalankan <b>18_project_estimates.sql</b> di Supabase SQL Editor, lalu klik Reload Data. Estimasi otomatis tetap berjalan.</div></div>':''}
+<div class="pj-tabs" role="tablist" aria-label="Sub panel"><button type="button" class="${st.pjMain==='progress'?'on':''}" data-a="pj-tab" data-t="progress"><i class="ph ph-chart-line-up"></i> Progress Buku</button><button type="button" class="${st.pjMain==='add'?'on':''}" data-a="pj-tab" data-t="add"><i class="ph ph-plus-circle"></i> Tambah Project</button></div>
+<div id="pj-m-progress" class="space-y-5"><div class="pj-tabs" role="tablist" aria-label="Tampilan progres"><button type="button" class="${st.pgTab==='book'?'on':''}" data-a="pj-ptab" data-t="book"><i class="ph ph-book-open-text"></i> Per Buku</button><button type="button" class="${st.pgTab==='ana'?'on':''}" data-a="pj-ptab" data-t="ana"><i class="ph ph-timer"></i> Analisis Waktu</button></div><div id="pg-book" class="space-y-5">${pgPickerHTML()}<div id="pg-content" class="space-y-5"></div></div><div id="pg-ana" class="hidden space-y-5">${pjHeroHTML()}<div id="pj-ana">${pjAnaHTML()}</div></div></div>
+<div id="pj-m-add" class="hidden"><div id="pj-tab-proj"><div class="pj-split"><div class="pj-listcol"><div class="card p-3 space-y-3"><div class="grid grid-cols-[1fr_auto] gap-2"><div class="pj-search"><i class="ph ph-magnifying-glass"></i><input id="pj-q" class="input" placeholder="Cari judul atau catatan…" value="${esc(f.q)}" autocomplete="off"></div><select id="pj-ent" class="input !w-auto max-w-[140px]" aria-label="Entitas"><option value="">Semua</option>${ents.map(e=>`<option ${f.ent===e?'selected':''}>${esc(e)}</option>`).join('')}</select></div><div class="pj-chips">${PJ_FILTERS.map(x=>`<button type="button" class="pj-ch${(f.stt||'')===x[0]?' on':''}" data-a="pj-f" data-v="${x[0]}">${x[1]}<em data-fc="${x[0]}">0</em></button>`).join('')}</div></div><div id="pj-list" class="pj-list">${pjListHTML()}</div></div><div id="pj-detail" class="pj-detail${st.pjOpen?' open':''}">${pjDetailHTML(pjFind(st.pjSel))}</div></div></div>
+</div></div>`}
+function projInit(){const o=pjOverview(st.projects||[]);st.pjO=o;pjTab(st.pjMain||'progress');pjPTab(st.pgTab||'book');pjCounts();requestAnimationFrame(()=>requestAnimationFrame(()=>{pjPaint(o);pjAnaPaint(o);const p=pjFind(st.pjSel);if(p)pjPaintDetail(p)}))}
+
+/* ===== Progress Buku: pilih buku -> hero, tahapan sektor, riwayat progres + estimasi (otomatis / manual) ===== */
+const pgAdd=(iso,n)=>iso?new Date(pjMs(iso)+n*864e5).toISOString().slice(0,10):null;
+const pgDiff=(a,b)=>Math.round((pjMs(b)-pjMs(a))/864e5);
+const pgEstOf=(p,k)=>(p.stage_estimates&&p.stage_estimates[k])||{};
+const pgSign=n=>(n>0?'+':n<0?'−':'')+Math.abs(n);
+const PG_STT={'DONE':'Selesai','ON PROGRESS':'Sedang berjalan','NOT YET':'Belum dimulai','N/A':'Dilewati'};
+const pgSecName=g=>(PJ_GROUPS.find(x=>x[0]===g)||[])[1]||g;
+
+/* Estimasi awal  = rencana murni dari tanggal mulai paling awal + target hari tiap tahap (berurutan).
+   Estimasi baru  = tanggal mulai aktual (bila ada) + target, tanggal selesai aktual bila DONE, atau tanggal manual yang diatur user. */
+function pgSchedule(p){
+ let origin=null;Object.values(p.stage_dates||{}).forEach(d=>{if(d&&d.s&&(origin==null||d.s<origin))origin=d.s});
+ let prevA=null,prevN=null,first=true;const rows=[];
+ PJ_STAGES.forEach(([k,l,g])=>{
+  const v=pjVal(p,k),act=pjDt(p,k),t=pjTarget(k),m=pgEstOf(p,k);
+  const row={k,l,g,v,act,t,days:pjDays(p,k),manual:!!m.d,reason:m.r||'',eA:null,eN:null,eAuto:null,diff:null};
+  if(v!=='N/A'){
+   const sA=first?origin:(prevA?pgAdd(prevA,1):null);
+   row.eA=sA?pgAdd(sA,t-1):null;
+   const sN=act.s||(first?origin:(prevN?pgAdd(prevN,1):null));
+   row.eAuto=sN?pgAdd(sN,t-1):null;
+   row.eN=m.d||((v==='DONE'&&act.e)?act.e:row.eAuto);
+   row.diff=row.eA&&row.eN?pgDiff(row.eA,row.eN):null;
+   prevA=row.eA;prevN=row.eN;first=false;
+  }
+  rows.push(row)});
+ const mx=a=>a.filter(Boolean).sort().at(-1)||null,awalEnd=mx(rows.map(r=>r.eA)),newEnd=mx(rows.map(r=>r.eN));
+ return{origin,rows,awalEnd,newEnd,delta:awalEnd&&newEnd?pgDiff(awalEnd,newEnd):null}}
+
+function pgWhy(r){if(r.reason)return esc(r.reason);if(r.manual)return 'Estimasi diatur manual.';if(r.v==='DONE')return r.diff>0?'Selesai lebih lama dari rencana.':'Selesai lebih cepat dari rencana.';return 'Jadwal menyesuaikan progres tahap sebelumnya.'}
+
+function pgTi(r,ed){
+ const na=r.v==='N/A',est=na?'Tidak diperlukan':(r.eN?dateID(r.eN):'Belum terjadwal'),late=r.v==='ON PROGRESS'&&r.eN&&r.eN<today(),moved=!na&&r.diff!=null&&r.diff!==0;
+ const act=[r.act.s?'Mulai '+dateID(r.act.s):'',r.act.e?'Selesai '+dateID(r.act.e):'',r.days!=null?`${r.days} hari (target ${r.t})`:''].filter(Boolean).join(' · ');
+ return `<div class="pg-ti" data-v="${esc(r.v)}"><i class="pg-dot"></i><div class="pg-th"><b>${esc(r.l)}</b><span class="chip">${esc(pgSecName(r.g))}</span>${r.manual?'<span class="chip chip-low">Manual</span>':''}${late?'<span class="pj-lv pj-lv-late">Lewat estimasi</span>':''}${ed&&!na?`<button type="button" class="pj-ed ml-auto" data-a="pg-est" data-k="${esc(r.k)}" title="Atur estimasi manual" aria-label="Atur estimasi ${esc(r.l)}"><i class="ph ph-pencil-simple"></i></button>`:''}</div><div class="pg-ts">Status: <b>${PG_STT[r.v]||esc(r.v)}</b> • Estimasi: <b>${est}</b></div>${act?`<div class="pg-tn">${act}</div>`:''}${moved?`<div class="pg-tn">Estimasi awal ${dateID(r.eA)} menyesuaikan menjadi ${dateID(r.eN)}.</div>`:''}${moved||r.reason?`<div class="pg-adj"><b>Penyesuaian estimasi${r.diff?': '+pgSign(r.diff)+' hari':''}.</b> ${pgWhy(r)}</div>`:''}</div>`}
+
+function pgSectors(p,S){return PJ_GROUPS.map(g=>{
+ const rs=S.rows.filter(r=>r.g===g[0]&&r.v!=='N/A'),x=pjGroup(p,g[0]);let c='wait';
+ if(!rs.length)c='na';else if(rs.every(r=>r.v==='DONE'))c='done';else if(rs.some(r=>r.v!=='NOT YET'))c='cur';
+ const a=rs.map(r=>r.act.s).filter(Boolean).sort()[0],b=rs.map(r=>r.eN).filter(Boolean).sort().at(-1),over=x.days!=null&&x.days>x.tgt?` · +${x.days-x.tgt} hari`:'';
+ return `<div class="pg-step ${c}"><b>${esc(g[1])}</b>${c==='na'?'<span>Tidak diperlukan</span>':`<span>${a?pjShort(a):'—'} → ${b?pjShort(b):'—'}</span><em>${x.done}/${x.n} tahap${over}</em>`}</div>`}).join('')}
+
+function pgBookHTML(p){
+ const s=pjStat(p),S=pgSchedule(p),ent=(p.entity||'').trim(),age=pjAge(p),ed=!st.pgNoEst,
+ stt=s.state==='selesai'?'Selesai':s.state==='berjalan'?'Sedang berjalan':'Belum dimulai',
+ cur=s.cur.length?pjLbl(s.cur[0])+(s.cur.length>1?' +'+(s.cur.length-1):''):(s.state==='selesai'?'Selesai':(s.next?'Berikutnya: '+pjLbl(s.next):'Belum dimulai')),
+ pill=(n,l,bad)=>`<div class="pj-pill${bad?' bad':''}"><b>${n}</b><span>${l}</span></div>`,
+ dl=S.delta==null?'':(S.delta>0?`${S.delta} hari lebih lambat`:S.delta<0?`${-S.delta} hari lebih cepat`:'Sesuai rencana'),
+ tiles=PJ_GROUPS.map(g=>{const x=pjGroup(p,g[0]),pct=x.n?Math.round(x.done/x.n*100):0,late=PJ_STAGES.filter(z=>z[2]===g[0]&&pjLvl(p,z[0])==='late').length;
+  return `<div class="pj-gt" data-lvl="${pjSecLvl(x)}" style="--c:${g[3]}"><div class="pj-gt-h"><span class="pj-sec-ico"><i class="ph ${g[4]}"></i></span><b>${esc(g[1])}</b></div><div class="pj-gt-v"><span>${x.n?pct+'%':'N/A'}</span>${late?`<span class="pj-flag">${late} terlambat</span>`:''}</div><div class="pj-bar2"><i data-w="${pct}"></i></div><div class="pj-gt-s"><span class="pj-avg">${x.n?`${x.done}/${x.n} tahap`:'Tidak diperlukan'}${x.days!=null?` · <b>${x.days} hr</b> / ${x.tgt}`:''}</span></div></div>`}).join('');
+ return `<section class="card pj-hero"><div class="pj-hero-top"><div class="pj-ring pj-ring-lg" data-pct="${s.pct}">${pjRingSvg('pg-g1',52,10)}<div class="pj-ringtxt"><b>${s.pct}%</b><small>SELESAI</small></div></div><div class="min-w-0 flex-1"><div class="pj-h-t">Progres buku</div><div class="pj-h-s"><b>${s.done}</b> dari <b>${s.app}</b> tahap selesai · ${stt}</div><div class="pj-pills">${pill(s.done,'Selesai')}${pill(s.prog,'Proses')}${pill(s.app-s.done-s.prog,'Belum')}${pill(s.late,'Tahap terlambat',s.late>0)}</div></div></div><div class="pj-gts">${tiles}</div></section>
+<section class="card pg-head"><div class="pg-head-top"><div class="min-w-0"><div class="pg-kicker">Progress buku${ent?' · '+esc(ent):''}</div><h2 class="pg-title">${esc(p.title)}</h2></div><div class="pg-eta"><small>Estimasi selesai terbaru</small><b>${S.newEnd?dateID(S.newEnd):'—'}</b></div></div><div class="pg-meta"><div><small>Entitas</small><b>${esc(ent||'-')}</b></div><div><small>Tanggal mulai</small><b>${S.origin?dateID(S.origin):'-'}</b></div><div><small>${age&&age.done?'Total durasi':'Sudah berjalan'}</small><b>${age?age.d+' hari':'-'}</b></div><div><small>Buku di katalog</small><b>${p.book_id?esc(p.book_title||p.book_id):'Belum ditautkan'}</b></div></div></section>
+<section class="card pg-chev-wrap"><div class="pg-chev">${pgSectors(p,S)}</div></section>
+<div class="pg-grid"><aside class="card pg-side"><div class="pg-kicker">Tahap saat ini</div><div class="pg-cur">${esc(cur)}</div><div class="pg-lbl">Estimasi awal selesai</div><b>${S.awalEnd?dateID(S.awalEnd):'—'}</b><div class="pg-lbl">Estimasi terbaru selesai</div><b style="color:#2563eb">${S.newEnd?dateID(S.newEnd):'—'}</b>${dl?`<div class="pg-lbl">Selisih</div><b>${dl}</b>`:''}<div class="pg-hint">Estimasi dihitung otomatis dari tanggal mulai + target hari tiap tahap.${ed?' Klik ikon pensil pada sebuah tahap untuk mengubahnya manual.':''}</div></aside><section class="card pg-tlc"><h3 class="font-black">Riwayat Progres</h3><div class="pg-tl mt-4">${S.rows.map(r=>pgTi(r,ed)).join('')}</div></section></div>`}
+
+function pgPickerHTML(){return `<div class="card p-4"><label class="pg-kicker" for="pg-sel">Pilih buku</label><select id="pg-sel" class="input mt-1"><option value="">— Pilih buku untuk melihat progresnya —</option>${(st.projects||[]).map(p=>`<option value="${esc(p.id)}" ${String(st.pgSel)===String(p.id)?'selected':''}>${esc(p.title)}${p.entity?' · '+esc(p.entity):''} (${pjStat(p).pct}%)</option>`).join('')}</select></div>`}
+function pgPaint(){const c=$('#pg-content');if(!c)return;c.querySelectorAll('.pj-bar2 i[data-w]').forEach(i=>{i.style.width=i.dataset.w+'%'});const r=c.querySelector('.pj-ring-fg'),g=c.querySelector('.pj-ring[data-pct]');if(r&&g)pjRingSet(r,+g.dataset.pct)}
+function pgRender(){const c=$('#pg-content');if(!c)return;
+ const sel=$('#pg-sel');if(sel){[...sel.options].forEach(o=>{if(!o.value)return;const q=pjFind(o.value);if(q)o.textContent=`${q.title}${q.entity?' · '+q.entity:''} (${pjStat(q).pct}%)`});const want=pjFind(st.pgSel)?String(st.pgSel):'';if(sel.value!==want)sel.value=want}
+ const p=pjFind(st.pgSel);
+ if(!p){c.innerHTML=(st.projects||[]).length?'<div class="card pj-none"><i class="ph ph-books"></i><b>Pilih buku</b><span>Pilih salah satu buku di atas untuk melihat progres, tahapan sektor, dan riwayat estimasinya.</span></div>':'<div class="card pj-none"><i class="ph ph-kanban"></i><b>Belum ada project</b><span>Buka sub panel Tambah Project untuk membuat project buku pertama.</span></div>';return}
+ c.innerHTML=pgBookHTML(p);requestAnimationFrame(()=>requestAnimationFrame(pgPaint))}
+
+function pgEstModal(p,k){const r=pgSchedule(p).rows.find(x=>x.k===k);if(!r)return;const m=pgEstOf(p,k);
+ modal(`<form id="pg-est-form" data-id="${esc(p.id)}" data-k="${esc(k)}" class="p-6 max-w-lg mx-auto"><div class="text-xs text-blue-600 font-black">ESTIMASI SELESAI</div><h2 class="text-xl font-black mt-1 break-words">${esc(r.l)}</h2><p class="text-xs text-slate-500 break-words">${esc(p.title)}</p><div class="tile mt-4 text-sm">Hitungan otomatis: <b>${r.eAuto?dateID(r.eAuto):'belum bisa dihitung'}</b> <span class="text-xs text-slate-500">(mulai + target ${r.t} hari)</span></div><label class="block text-sm font-bold mt-4">Estimasi selesai (manual)<input type="date" name="d" class="input mt-1" value="${esc(m.d||r.eN||'')}" required></label><label class="block text-sm font-bold mt-3">Alasan penyesuaian <span class="font-normal text-slate-500">(opsional)</span><textarea name="r" rows="3" maxlength="500" class="input mt-1" placeholder="cth. Revisi dari penulis lebih lama dari estimasi">${esc(m.r||'')}</textarea></label><div class="flex flex-wrap justify-between gap-2 mt-5">${m.d?'<button type="button" class="btn soft" data-a="pg-est-reset">Kembali ke otomatis</button>':'<span></span>'}<div class="flex gap-2"><button type="button" class="btn soft" data-a="close">Batal</button><button type="submit" class="btn primary" id="pg-est-save">Simpan</button></div></div></form>`)}
+async function pgEstSave(id,k,date,reason,btn,msg){const p=pjFind(id);if(!p)return;setButtonBusy(btn,true);
+ try{const r=await rpc('set_project_stage_estimate',{p_id:Number(id),p_stage:k,p_date:date||null,p_reason:reason||''});if(r&&r.stage_estimates!==undefined)p.stage_estimates=r.stage_estimates;if(r&&r.updated_at)p.updated_at=r.updated_at;closeModal();toast(msg,'success');pgRender()}catch{}finally{setButtonBusy(btn,false)}}
+
+document.addEventListener('change',e=>{if(e.target.id!=='pg-sel')return;st.pgSel=e.target.value||null;pgRender()});
+document.addEventListener('click',e=>{const a=e.target.closest('[data-a="pg-est"],[data-a="pg-est-reset"]');if(!a||!isWriter())return;
+ if(a.dataset.a==='pg-est'){const p=pjFind(st.pgSel);if(p)pgEstModal(p,a.dataset.k)}
+ else{const f=$('#pg-est-form');if(f)pgEstSave(f.dataset.id,f.dataset.k,null,'',a,'Estimasi dikembalikan ke otomatis.')}});
+document.addEventListener('submit',e=>{if(e.target.id!=='pg-est-form')return;e.preventDefault();if(!isWriter())return;const f=new FormData(e.target),d=String(f.get('d')||'');if(!d)return toast('Tanggal estimasi wajib diisi.','error');pgEstSave(e.target.dataset.id,e.target.dataset.k,d,String(f.get('r')||'').trim(),$('#pg-est-save'),'Estimasi disimpan.')});
 
 /* ---------- aksi ---------- */
 async function pjSetStage(id,k,v){const p=pjFind(id);if(!p||pjVal(p,k)===v)return;const oldV=pjVal(p,k),oldD=JSON.parse(JSON.stringify(p.stage_dates||{}));p.stages={...(p.stages||{}),[k]:v};p.stage_dates=pjAutoDates(p.stage_dates,k,v);pjApply(p);const row=document.querySelector(`#pj-detail .pj-row[data-row="${k}"]`);if(row){row.classList.remove('pj-flash');void row.offsetWidth;row.classList.add('pj-flash')}
@@ -524,9 +630,10 @@ document.addEventListener('click',e=>{const a=e.target.closest('[data-a^="pj-"]'
  if(x==='pj-sel')pjSelect(a.dataset.id);
  else if(x==='pj-back'){st.pjOpen=false;$('#pj-detail')?.classList.remove('open')}
  else if(x==='pj-tab')pjTab(a.dataset.t);
+ else if(x==='pj-ptab')pjPTab(a.dataset.t);
  else if(x==='pj-f'){st.pjf.stt=a.dataset.v||'';pjRenderList()}
- else if(x==='pj-late'){st.pjf={q:'',ent:'',stt:'late'};const q=$('#pj-q'),en=$('#pj-ent');if(q)q.value='';if(en)en.value='';pjTab('proj');pjRenderList();const f=pjFiltered()[0];if(f)pjSelect(f.p.id,false)}
- else if(x==='pj-goto'){st.pjf={q:'',ent:'',stt:''};const q=$('#pj-q'),en=$('#pj-ent');if(q)q.value='';if(en)en.value='';pjTab('proj');pjRenderList();pjSelect(a.dataset.id);document.querySelector(`.pj-item[data-id="${a.dataset.id}"]`)?.scrollIntoView({block:'nearest'});if(innerWidth>=1024)$('#pj-tab-proj')?.scrollIntoView({behavior:'smooth',block:'start'})}
+ else if(x==='pj-late'){st.pjf={q:'',ent:'',stt:'late'};const q=$('#pj-q'),en=$('#pj-ent');if(q)q.value='';if(en)en.value='';pjTab('add');pjRenderList();const f=pjFiltered()[0];if(f)pjSelect(f.p.id,false)}
+ else if(x==='pj-goto'){st.pgSel=a.dataset.id;st.pjSel=a.dataset.id;pjPTab('book');pgRender();$('#pj-m-progress')?.scrollIntoView({behavior:'smooth',block:'start'})}
  else if(x==='pj-set')pjSetStage(a.closest('[data-did]')?.dataset.did,a.dataset.k,a.dataset.v);
  else if(x==='pj-dates')a.closest('.pj-row')?.querySelector('.pj-dates')?.classList.toggle('hidden');
  else if(x==='pj-add')pjModal(null);
@@ -534,7 +641,7 @@ document.addEventListener('click',e=>{const a=e.target.closest('[data-a^="pj-"]'
  else if(x==='pj-export')pjExport();
  else if(x==='pj-targets'){if(isAdmin())pjTargetsModal()}
  else if(x==='pj-treset')document.querySelectorAll('#pj-tform input[type=number]').forEach(i=>i.value=PJ_TARGET_DEF[i.name]);
- else if(x==='pj-open'){st.pjf={q:a.dataset.q||'',ent:'',stt:''};st.pjFromBook=true;st.pjTab='proj';navigate('projects')}
+ else if(x==='pj-open'){st.pjf={q:'',ent:'',stt:''};st.pjFromBook=a.dataset.q||true;st.pjMain='progress';st.pgTab='book';navigate('projects')}
  else if(x==='pj-del'){if(!isAdmin())return toast('Hanya Administrator yang dapat menghapus project.','error');const p=pjFind(a.dataset.id);if(!p)return;confirmText('Hapus Project?',`Hapus "${p.title}" beserta seluruh progresnya? Tindakan ini tidak dapat dibatalkan.`,'Hapus',async()=>{await rpc('delete_book_project',{p_id:p.id});st.projects=st.projects.filter(z=>z.id!==p.id);st.pjOpen=false;pjRefreshAll();toast('Project dihapus.','success')})}});
 document.addEventListener('submit',async e=>{if(e.target.id==='pj-tform'){e.preventDefault();if(!isAdmin())return;const f=new FormData(e.target),v={};PJ_STAGES.forEach(([k])=>v[k]=Math.max(1,Math.min(999,parseInt(f.get(k))||PJ_TARGET_DEF[k])));const b=$('#pj-tsave');setButtonBusy(b,true);try{const r=await rpc('save_project_targets',{p_value:v});st.pjT={...PJ_TARGET_DEF,...(r||v)};closeModal();toast('Target hari disimpan.','success');if(st.view==='projects')await renderView(true)}catch{}finally{setButtonBusy(b,false)}return}
  if(e.target.id!=='pj-form')return;e.preventDefault();if(!isWriter())return;const f=new FormData(e.target),id=e.target.dataset.id,title=String(f.get('title')||'').trim();if(!title)return toast('Judul buku wajib diisi.','error');const b=$('#pj-save');setButtonBusy(b,true);try{const r=await rpc('save_book_project',{p_id:id?Number(id):null,p_data:{title,entity:String(f.get('entity')||'').trim(),notes:String(f.get('notes')||'').trim(),book_id:String(f.get('book_id')||'')}});if(!id&&r?.id){st.pjSel=r.id;st.pjOpen=innerWidth<1024}st.projects=await rpc('list_book_projects')||[];closeModal();toast(id?'Project diperbarui.':'Project ditambahkan.','success');if(st.view==='projects')await renderView(true)}catch{}finally{setButtonBusy(b,false)}});
